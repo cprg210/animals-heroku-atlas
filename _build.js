@@ -25,6 +25,9 @@ db.on('error', function(error){
 
 db.once('open', function() {
   console.log('Connected to DB...');
+  // mongoose.connection.db.dropCollection('animals', function(err, result) {
+  //   console.log('Dropped collection.');
+  // });
   Animal.insertMany(dbSeed, function(error, animal) {
     console.log('Data import completed.')
     mongoose.connection.close();
